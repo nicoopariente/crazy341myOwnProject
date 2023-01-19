@@ -1,0 +1,104 @@
+CERT ENV
+###
+GET http://localhost:3000/contacts
+
+###
+
+
+GET http://localhost:3000/contacts/63bf7fd54ca2a693338dffd1
+
+###
+
+GET http://localhost:3000/contacts/63bf77305ec972b748968368
+
+
+###
+
+GET http://localhost:3000/contacts/6266ad750dbab2d67242f12f
+
+
+###
+
+GET http://localhost:3000/
+
+
+###
+
+POST http://localhost:3000/menu HTTP/1.1
+content-type: application/json
+
+{
+"foodName":"Lasagna", 
+"preparationTime":"50min",
+ "ingredients":["Cheese", "Dough", "Meat"], 
+ "chefName":"Agustin",
+ "idInTheMenu":"1", 
+ "restaurantName":"Nico's",
+ "score":"4"
+}
+
+###
+
+DELETE http://localhost:3000/contacts/63bf762bf36 HTTP/1.1
+content-type: application/json
+
+###
+
+PUT http://localhost:3000/contacts/6266ad750dbab2d67242f HTTP/1.1
+content-type: application/json
+
+{
+"firstName":"Agustin", 
+"lastName":"Pariente",
+ "email":"test9@gmail.com", 
+ "favoriteColor":"Green", 
+ "birthday":"01/15/00"
+}
+
+
+###
+
+PROD ENV
+
+###
+
+PUT https://crazy341.onrender.com/contacts/63bf77305ec972b748968368 HTTP/1.1
+content-type: application/json
+
+{
+"firstName":"Nicolas", 
+"lastName":"Pariente",
+ "email":"test9@gmail.com", 
+ "favoriteColor":"Green", 
+ "birthday":"01/15/00"
+}
+
+###
+
+GET https://crazy341.onrender.com/
+
+
+###
+
+###
+
+DELETE https://crazy341.onrender.com/contacts/63bf762bf36 HTTP/1.1
+content-type: application/json
+
+###
+
+
+###
+
+POST https://crazy341.onrender.com/contacts HTTP/1.1
+content-type: application/json
+
+{
+"firstName":"Robert2", 
+"lastName":"Pariente",
+ "email":"hnpf2019@gmail.com", 
+ "favoriteColor":"Green", 
+ "birthday":"02/15/98"
+}
+
+###

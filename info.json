@@ -1,0 +1,50 @@
+[{
+  
+  "firstName": "Juan",
+  "lastName": "Pariente",
+  "email": "jpariente@gmail.com",
+  "favoriteColor": "orange",
+  "birthday": "09/02/2003"
+},{
+  
+  "firstName": "Agustin",
+  "lastName": "Pariente",
+  "email": "test9@gmail.com",
+  "favoriteColor": "Green",
+  "birthday": "01/15/01"
+},{
+  
+  "firstName": "Benjamin",
+  "lastName": "Pariente",
+  "email": "bpariente@gmail.com",
+  "favoriteColor": "green",
+  "birthday": "05/24/2013"
+},{
+  
+  "firstName": "Nicolas2",
+  "lastName": "Pariente",
+  "email": "test9@gmail.com",
+  "favoriteColor": "Green",
+  "birthday": "01/15/00"
+},{
+  
+  "firstName": "Robert",
+  "lastName": "Pariente",
+  "email": "hnpf2019@gmail.com",
+  "favoriteColor": "Green",
+  "birthday": "02/15/98"
+},{
+  
+  "firstName": "any",
+  "lastName": "any",
+  "email": "any",
+  "favoriteColor": "any",
+  "birthday": "any"
+},{
+  
+  "firstName": "test",
+  "lastName": "test",
+  "email": "test@gmail.com",
+  "favoriteColor": "test",
+  "birthday": "0000"
+}]
