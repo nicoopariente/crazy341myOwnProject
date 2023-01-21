@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Restaurants APP",
-    "description": "Check your favourite dishes here!!! ",
+    "title": "My API",
+    "description": "Temple API",
     "version": "1.0.0"
   },
   "host": "crazy341myownproject.onrender.com",
@@ -76,6 +76,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "412": {
+            "description": "Precondition Failed"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -85,6 +88,9 @@
     "/menu/{id}": {
       "get": {
         "description": "",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -96,6 +102,89 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "foodName": {
+                  "example": "any"
+                },
+                "preparationTime": {
+                  "example": "any"
+                },
+                "ingredients": {
+                  "example": "any"
+                },
+                "chefName": {
+                  "example": "any"
+                },
+                "idInTheMenu": {
+                  "example": "any"
+                },
+                "restaurantName": {
+                  "example": "any"
+                },
+                "score": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "304": {
+            "description": "Not Modified"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          },
+          "400": {
+            "description": "Bad Request"
           },
           "404": {
             "description": "Not Found"

@@ -1,7 +1,8 @@
 // External Dependencies
 import express from "express";
 
-import {getAll, getSingle, createSingle} from "../controller/menu";
+import {getAll, getSingle, createSingle, updateSingle, deleteSingle} from "../controller/menu";
+import {saveContact} from "../middleware/validate";
 // Global Config
 export const RouterMenu = express.Router();
 
@@ -11,8 +12,10 @@ RouterMenu.get("/", getAll);
 
 RouterMenu.get("/:id", getSingle);
 // POST
-RouterMenu.post("/", createSingle );
+RouterMenu.post("/", saveContact, createSingle );
 
 // PUT
+RouterMenu.put("/:id", saveContact, updateSingle );
 
 // DELETE
+RouterMenu.delete("/:id", deleteSingle);

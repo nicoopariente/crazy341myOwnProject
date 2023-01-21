@@ -53,7 +53,7 @@ POST https://crazy341myownproject.onrender.com/menu HTTP/1.1
 content-type: application/json
 
 {
-"foodName":"LasagnaNew", 
+"foodName":"NewForTesting", 
 "preparationTime":"50min",
  "ingredients":["Cheese", "Dough", "Meat"], 
  "chefName":"Agustin",
