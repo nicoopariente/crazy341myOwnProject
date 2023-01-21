@@ -105,7 +105,7 @@ const deleteSingle = async (req: Request, res: Response) => {
         const result = (await collections.food.deleteOne(query));
         
         if (result && result.deletedCount) {
-            res.status(202).send(`Successfully removed food with id ${id}`);
+            res.status(200).send(`Successfully removed food with id ${id}`);
         } else if (!result) {
             res.status(400).send(`Failed to remove food with id ${id}`);
         } else if (!result.deletedCount) {
