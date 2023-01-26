@@ -5,19 +5,21 @@ import { collections } from "../services/database.services";
 
 
 
-
-const getAll = async (_req: Request, res: Response) => {
+const getAll = async (req: Request, res: Response) => {
     try {
        const food = (await collections.food.find({}).toArray());
 
        
        res.status(200).send(food);
+       console.log(req?.user?.displayName)
+       
 
        // res.status(200).send(food);
     } catch (error) {
         if (error instanceof Error) {
             // ✅ TypeScript knows err is Error
             res.status(500).send(error.message);
+            
           } else {
             console.log('Unexpected error', error);
           }
