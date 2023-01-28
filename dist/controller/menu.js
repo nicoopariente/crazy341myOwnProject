@@ -12,10 +12,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteSingle = exports.updateSingle = exports.createSingle = exports.getSingle = exports.getAll = void 0;
 const mongodb_1 = require("mongodb");
 const database_services_1 = require("../services/database.services");
-const getAll = (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const getAll = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
     try {
         const food = (yield database_services_1.collections.food.find({}).toArray());
         res.status(200).send(food);
+        console.log((_a = req === null || req === void 0 ? void 0 : req.user) === null || _a === void 0 ? void 0 : _a.displayName);
         // res.status(200).send(food);
     }
     catch (error) {
@@ -30,8 +32,8 @@ const getAll = (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
 });
 exports.getAll = getAll;
 const getSingle = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    var _a;
-    const id = (_a = req === null || req === void 0 ? void 0 : req.params) === null || _a === void 0 ? void 0 : _a.id;
+    var _b;
+    const id = (_b = req === null || req === void 0 ? void 0 : req.params) === null || _b === void 0 ? void 0 : _b.id;
     try {
         const query = { _id: new mongodb_1.ObjectId(id) };
         const food = (yield database_services_1.collections.food.findOne(query));
@@ -69,8 +71,8 @@ const createSingle = (req, res) => __awaiter(void 0, void 0, void 0, function* (
 });
 exports.createSingle = createSingle;
 const updateSingle = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    var _b;
-    const id = (_b = req === null || req === void 0 ? void 0 : req.params) === null || _b === void 0 ? void 0 : _b.id;
+    var _c;
+    const id = (_c = req === null || req === void 0 ? void 0 : req.params) === null || _c === void 0 ? void 0 : _c.id;
     const newFood = {
         foodName: req.body.foodName,
         preparationTime: req.body.preparationTime,
@@ -97,13 +99,13 @@ const updateSingle = (req, res) => __awaiter(void 0, void 0, void 0, function* (
 });
 exports.updateSingle = updateSingle;
 const deleteSingle = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    var _c;
-    const id = (_c = req === null || req === void 0 ? void 0 : req.params) === null || _c === void 0 ? void 0 : _c.id;
+    var _d;
+    const id = (_d = req === null || req === void 0 ? void 0 : req.params) === null || _d === void 0 ? void 0 : _d.id;
     try {
         const query = { _id: new mongodb_1.ObjectId(id) };
         const result = (yield database_services_1.collections.food.deleteOne(query));
         if (result && result.deletedCount) {
-            res.status(202).send(`Successfully removed food with id ${id}`);
+            res.status(200).send(`Successfully removed food with id ${id}`);
         }
         else if (!result) {
             res.status(400).send(`Failed to remove food with id ${id}`);

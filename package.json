@@ -24,12 +24,17 @@
   },
   "homepage": "https://github.com/nicoopariente/crazy341myOwnProject#readme",
   "dependencies": {
+    "@types/express-session": "^1.17.5",
+    "@types/passport": "^1.0.11",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "express-session": "^1.17.3",
     "joi": "^17.7.0",
     "mongodb": "^4.13.0",
+    "passport": "^0.5.3",
+    "passport-google-oauth2": "^0.2.0",
     "swagger-ui-express": "^4.6.0"
   },
   "devDependencies": {
