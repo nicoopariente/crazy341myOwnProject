@@ -10,13 +10,14 @@ const isLoggedIn = (req:Request, res: Response, next:NextFunction)=>{
 
 const Logout = (req: Request, res: Response, next:NextFunction)=>{
     let name = req.user.given_name;
+    
     console.log(name);       
     req.logOut(function(err) {
        if (err) { 
             console.log(err);
             return next(err);}});
    
-    req.session.destroy(null);
+            req.session.destroy(null);
     res.clearCookie('connect.sid');
     res.send(`You logged out Successfully. We will miss you ${name}`)
     
