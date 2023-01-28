@@ -17,11 +17,7 @@ const Logout = (req: Request, res: Response, next:NextFunction)=>{
             return next(err);}});
    
     req.session.destroy(null);
-    passport.authenticate('local-signin', {
-        successRedirect : '/',
-        failureRedirect : '/',
-        session: false
-      })
+    res.clearCookie('connect.sid');
     res.send(`You logged out Successfully. We will miss you ${name}`)
     
 

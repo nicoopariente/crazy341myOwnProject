@@ -18,11 +18,7 @@ const Logout = (req, res, next) => {
         }
     });
     req.session.destroy(null);
-    passport.authenticate('local-signin', {
-        successRedirect: '/',
-        failureRedirect: '/',
-        session: false
-    });
+    res.clearCookie('connect.sid');
     res.send(`You logged out Successfully. We will miss you ${name}`);
 };
 exports.Logout = Logout;

@@ -34,7 +34,7 @@ connectToDatabase()
         app.use(session({ secret: 'cats'}));
         app.use(passport.initialize());
         app.use(passport.session());
-        app.use("/", Router,);
+        app.use("/", Router);
 
         app.listen(port, () => {
             console.log(`Server started at http://localhost:${port}`);
