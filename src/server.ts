@@ -31,7 +31,9 @@ const port = process.env.PORT;
 
 connectToDatabase()
     .then(() => {
-        app.use(session({ secret: 'cats'}));
+        app.use(session({ secret: 'cats',
+        saveUninitialized: false,
+        resave: false}));
         app.use(passport.initialize());
         app.use(passport.session());
         app.use("/", Router);

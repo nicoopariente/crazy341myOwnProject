@@ -11,7 +11,7 @@ exports.isLoggedIn = isLoggedIn;
 const Logout = (req, res, next) => {
     let name = req.user.given_name;
     console.log(name);
-    req.logout(function (err) {
+    req.logOut(function (err) {
         if (err) {
             console.log(err);
             return next(err);
