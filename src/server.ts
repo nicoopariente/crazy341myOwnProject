@@ -11,7 +11,8 @@ require('./middleware/auth');
 declare global {
     namespace Express {
       interface User {
-        displayName: string
+        displayName: string,
+        given_name: string
       }
     }
   }

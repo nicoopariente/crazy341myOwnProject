@@ -17,13 +17,20 @@ const express_1 = __importDefault(require("express"));
 const menu_1 = require("./menu");
 const swagger_1 = require("./swagger");
 const login_1 = require("./login");
+const logout_1 = require("./logout");
 const login_2 = require("../controller/login");
 // Global Config
 exports.Router = express_1.default.Router();
 exports.Router.use("/menu", login_2.isLoggedIn, menu_1.RouterMenu);
-exports.Router.get('/', (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.send('<a href="/auth/google">Authenticate with Google</a>');
+exports.Router.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    if (req.user) {
+        res.send(`<h3>Welcome ${req.user.displayName}</h3>`);
+    }
+    else {
+        res.send('<a href="/auth/google">Authenticate with Google</a>');
+    }
 }));
 exports.Router.use("/", swagger_1.routes);
 exports.Router.use("/", login_1.router);
+exports.Router.use("/", login_2.isLoggedIn, logout_1.router2);
 //# sourceMappingURL=index.js.map

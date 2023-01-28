@@ -7,16 +7,21 @@ const isLoggedIn = (req:Request, res: Response, next:NextFunction)=>{
 }
 
 const Logout = (req: Request, res: Response, next:NextFunction)=>{
+    let name = req.user.given_name;
+    console.log(name);       
     req.logout(function(err) {
-        if (err) { 
+       if (err) { 
             console.log(err);
             return next(err);}});
+   
     req.session.destroy(null);
-    res.send('You Logged out successfully')
+    res.send(`You logged out Successfully. We will miss you ${name}`)
+    
 
     
 }
+/*
 const welcome = (req: Request, res: Response)=>{
     res.send(`Welcome ${req.user.displayName}`)
-}
-export { isLoggedIn, Logout, welcome};
+}*/
+export { isLoggedIn, Logout};

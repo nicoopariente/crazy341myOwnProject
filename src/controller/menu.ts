@@ -11,7 +11,8 @@ const getAll = async (req: Request, res: Response) => {
 
        
        res.status(200).send(food);
-       console.log(req?.user?.displayName)
+       
+      console.log(req?.user?.displayName);
        
 
        // res.status(200).send(food);
