@@ -4,6 +4,7 @@ require('express-session');
 const passport = require('passport');
 
 const isLoggedIn = (req:Request, res: Response, next:NextFunction)=>{
+    console.log(req.user);
     req.user ? next() : res.sendStatus(401)
 }
 

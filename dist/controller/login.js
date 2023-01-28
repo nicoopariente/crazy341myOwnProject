@@ -4,6 +4,7 @@ exports.Logout = exports.isLoggedIn = void 0;
 require('express-session');
 const passport = require('passport');
 const isLoggedIn = (req, res, next) => {
+    console.log(req.user);
     req.user ? next() : res.sendStatus(401);
 };
 exports.isLoggedIn = isLoggedIn;
