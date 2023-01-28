@@ -7,5 +7,5 @@ require('../middleware/auth')
 export const router2 = express.Router();
 
 
-router2.post('/logout', Logout)
+router2.get('/logout', Logout)
 
