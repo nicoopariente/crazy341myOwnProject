@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { runInNewContext } from 'vm';
 require('express-session');
+const passport = require('passport');
 
 const isLoggedIn = (req:Request, res: Response, next:NextFunction)=>{
     req.user ? next() : res.sendStatus(401)
@@ -15,6 +16,11 @@ const Logout = (req: Request, res: Response, next:NextFunction)=>{
             return next(err);}});
    
     req.session.destroy(null);
+    passport.authenticate('local-signin', {
+        successRedirect : '/',
+        failureRedirect : '/',
+        session: false
+      })
     res.send(`You logged out Successfully. We will miss you ${name}`)
     
 

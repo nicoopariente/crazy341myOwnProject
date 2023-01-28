@@ -14,5 +14,5 @@ router.get('/auth/google/callback', passport.authenticate('google', {
     failureRedirect: '/',
 }));
 
-router.get('/logout', isLoggedIn, Logout)
+
 

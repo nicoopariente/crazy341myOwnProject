@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Logout = exports.isLoggedIn = void 0;
 require('express-session');
+const passport = require('passport');
 const isLoggedIn = (req, res, next) => {
     req.user ? next() : res.sendStatus(401);
 };
@@ -16,6 +17,11 @@ const Logout = (req, res, next) => {
         }
     });
     req.session.destroy(null);
+    passport.authenticate('local-signin', {
+        successRedirect: '/',
+        failureRedirect: '/',
+        session: false
+    });
     res.send(`You logged out Successfully. We will miss you ${name}`);
 };
 exports.Logout = Logout;
